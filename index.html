@@ -4,14 +4,21 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="style.css" />
         <script src="script.js"></script>
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         />
     </head>
-    <body>
+    <body>  
+        <div id="grid-container"></div>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <p>Purchase rejected. Not enough coins. Get more coins by clicking the button in the top left.</p>
+                <button id="close-modal" onclick="closeModal()">Close</button>
+            </div>
+        </div>
         <div id="top-left-button">
             <button onclick="modifyCoins(1)">
                 <img src="1.png" alt="Button Image" class="button-image" />
@@ -86,7 +93,7 @@
                                 <div class="card-tools">
                                     <div class="pill" id="html-pill">
                                         <img
-                                            src="html_logo.webp"
+                                            src="html.webp"
                                             alt="HTML"
                                             class="pill-icon"
                                         />
@@ -94,7 +101,7 @@
                                     </div>
                                     <div class="pill" id="css-pill">
                                         <img
-                                            src="css_logo.png"
+                                            src="css.png"
                                             alt="CSS"
                                             class="pill-icon"
                                         />
@@ -102,7 +109,7 @@
                                     </div>
                                     <div class="pill" id="js-pill">
                                         <img
-                                            src="js_logo.png"
+                                            src="javascript.webp"
                                             alt="JavaScript"
                                             class="pill-icon"
                                         />
@@ -128,15 +135,15 @@
                         </div>
                         <div class="card" class="card-general">
                             <img
-                                src="tictactoe_minimax.png"
+                                src="chopsticks_minimax.png"
                                 alt="Project Image"
                                 class="card-image"
                             />
                             <div class="card-header">
-                                <h3 class="card-title">Tic-Tac-Toe Minimax</h3>
+                                <h3 class="card-title">Chopsticks Minimax</h3>
                                 <div class="card-links">
                                     <a
-                                        href="https://github.com/noamshamir/Tic-Tac-Toe-AI"
+                                        href="https://github.com/noamshamir/chopsticks"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         class="icon-link"
@@ -151,7 +158,7 @@
                                 <div class="card-tools">
                                     <div class="pill" id="python-pill">
                                         <img
-                                            src="python_logo.svg"
+                                            src="python.webp"
                                             alt="Python"
                                             class="pill-icon"
                                         />
@@ -160,13 +167,13 @@
                                 </div>
                             </div>
                             <div class="blur-container" id="tic-tac-toe-blur-container">
-                                <div id="tic-tac-toe-description" class="blur card-description">
+                                <div id="chopsticks-description" class="blur card-description">
                                     <p>
-                                        A perfect tic-tac-toe bot utilizing the
-                                        minimax algorithm to make the optimal move from any game state. The bot maps out the entire game tree, and solves with recursive backtracking.
+                                        A perfect chopsticks bot utilizing the
+                                        minimax algorithm to always make the optimal chopsticks move (splits and attacks). The bot maps out the entire game tree, and solves with recursive backtracking.
                                     </p>
                                 </div>
-                                <button class="unlock-box" onclick="unblurContent('tic-tac-toe-description', 20)">
+                                <button class="unlock-box" onclick="unblurContent('chopsticks-description', 20)">
                                     <i class="fa fa-lock"></i>
                                     <img src="20.png" alt="Coin Icon" class="coin-icon" />
                                 </button>
@@ -174,7 +181,7 @@
                         </div>
                         <div class="card" class="card-general">
                             <img
-                                src="letter_generator.png"
+                                src="por.png"
                                 alt="Project Image"
                                 class="card-image"
                             />
@@ -196,7 +203,7 @@
                                 <div class="card-tools">
                                     <div class="pill" id="python-pill">
                                         <img
-                                            src="python_logo.svg"
+                                            src="python.webp"
                                             alt="Python"
                                             class="pill-icon"
                                         />
@@ -242,7 +249,7 @@
                                 <div class="card-tools">
                                     <div class="pill" id="dart-pill">
                                         <img
-                                            src="dart_logo.png"
+                                            src="dart.png"
                                             alt="Dart"
                                             class="pill-icon"
                                         />
@@ -250,7 +257,7 @@
                                     </div>
                                     <div class="pill" id="flutter-pill">
                                         <img
-                                            src="flutter_icon.png"
+                                            src="flutter.png"
                                             alt="Flutter"
                                             class="pill-icon"
                                         />
@@ -293,7 +300,7 @@
                                 <div class="card-tools">
                                     <div class="pill" id="python-pill">
                                         <img
-                                            src="python_logo.svg"
+                                            src="python.webp"
                                             alt="Python"
                                             class="pill-icon"
                                         />
@@ -303,7 +310,7 @@
                                 <div class="card-tools">
                                     <div class="pill" id="python-pill">
                                         <img
-                                            src="tkinter_logo.png"
+                                            src="tkinter.png"
                                             alt="Python"
                                             class="pill-icon"
                                         />
@@ -344,7 +351,7 @@
                     </p>
                     <div class="pill" id="python-pill-job">
                         <img
-                            src="python_logo.svg"
+                            src="python.webp"
                             alt="Python"
                             class="pill-icon"
                         />
@@ -377,14 +384,15 @@
                 <div class="offer-card" class="card-general" id="color-picker">
                     <h2 id="color-selector-title">Background Color</h2>
                     <h3 id="color-selector-description">Pick a color for the background</h3>
-                    <input type="color" id="color-selector" name="favcolor" value="#141414">
+                    <input type="color" id="color-selector" name="favcolor" value="#d663ce">
                     <button id="unlock-background" class="unlock-box" onclick="changeColor()">
                         <h3 id="purchase-background">Change color for 100</h3>
-                        <img src="20.png" alt="Coin Icon" class="coin-icon" /><img src="20.png" alt="Coin Icon" class="coin-icon" /><img src="5.png" alt="Coin Icon" class="coin-icon" /><img src="5.png" alt="Coin Icon" class="coin-icon" />
+                        <img src="100.png" alt="Coin Icon" class="coin-icon" />
                     </button>
                 </div>
             </section>
-            
+            <br />
+            <br />
         </div>
     </body>
 </html>
